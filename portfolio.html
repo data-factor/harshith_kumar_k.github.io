@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harshith Kumar K - AWS Data Engineer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --aws-orange: #FF9900;
+            --aws-squid-ink: #232F3E;
+            --aws-blue: #007BBC;
+            --aws-light: #FBFBFB;
+            --aws-dark: #1B2530;
+            --gradient-dark: linear-gradient(135deg, #232F3E 0%, #1B2530 100%);
+            --gradient-light: linear-gradient(135deg, #FBFBFB 0%, #EAEAEA 100%);
+        }
+
+        [data-theme="light"] {
+            --background: var(--aws-light);
+            --text-color: var(--aws-squid-ink);
+            --header-background: var(--gradient-light);
+            --navbar-background: var(--aws-squid-ink);
+            --navbar-text-color: white;
+            --footer-background: var(--aws-squid-ink);
+            --footer-text-color: white;
+        }
+
+        [data-theme="dark"] {
+            --background: var(--aws-dark);
+            --text-color: var(--aws-light);
+            --header-background: var(--gradient-dark);
+            --navbar-background: var(--aws-squid-ink);
+            --navbar-text-color: white;
+            --footer-background: var(--aws-squid-ink);
+            --footer-text-color: white;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Amazon Ember', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: var(--background);
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            background: var(--navbar-background);
+            color: var(--navbar-text-color);
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: var(--navbar-text-color);
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        .theme-toggle {
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        .header {
+            background: var(--header-background);
+            color: var(--text-color);
+            padding: 2rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--aws-orange);
+        }
+
+        .content {
+            padding: 1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .fade-in {
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        h2 {
+            color: var(--aws-blue);
+            margin-bottom: 0.5rem;
+            border-bottom: 2px solid var(--aws-blue);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: var(--aws-orange);
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p, ul {
+            margin-bottom: 0.5rem;
+        }
+
+        ul {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info p {
+            background: var(--background);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .skills ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skills li {
+            background: var(--background);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+        }
+
+        .skills li i {
+            margin-right: 0.5rem;
+        }
+
+        .contact-info a {
+            color: var(--aws-blue);
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .icon {
+            margin-right: 0.5rem;
+        }
+
+        .badge {
+            display: block;
+            margin-top: 1rem;
+            max-width: 200px;
+        }
+
+        .tech-icons {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .tech-icons i {
+            font-size: 2rem;
+            color: var(--aws-orange);
+            transition: transform 0.3s;
+        }
+
+        .tech-icons i:hover {
+            transform: scale(1.2);
+        }
+
+        footer {
+            background: var(--footer-background);
+            color: var(--footer-text-color);
+            text-align: center;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body data-theme="light">
+    <div class="navbar">
+        <div>
+            <a href="#contact">Contact</a>
+            <a href="#work-experience">Work Experience</a>
+            <a href="#education">Education</a>
+            <a href="#certifications">Certifications</a>
+            <a href="#skills">Skills</a>
+        </div>
+        <div class="theme-toggle" onclick="toggleTheme()">
+            <i class="fas fa-moon"></i>
+        </div>
+    </div>
+    <div class="header">
+        <h1>Harshith Kumar K</h1>
+        <div class="tech-icons">
+            <i class="fab fa-aws"></i>
+            <i class="fas fa-database"></i>
+            <i class="fas fa-code"></i>
+            <i class="fas fa-tools"></i>
+            <i class="fas fa-server"></i> <!-- EC2 -->
+            <i class="fas fa-database"></i> <!-- RDS -->
+            <i class="fas fa-cube"></i> <!-- S3 -->
+            <i class="fas fa-chart-bar"></i> <!-- Athena -->
+            <i class="fas fa-cogs"></i> <!-- Glue -->
+            <i class="fas fa-cloud"></i> <!-- EMR -->
+        </div>
+    </div>
+    <div class="content fade-in" id="contact">
+        <h2>Contact Information</h2>
+        <div class="contact-info">
+            <p><i class="fas fa-phone icon"></i>+919980331889</p>
+            <p><i class="fas fa-envelope icon"></i>harshithkumark4@gmail.com</p>
+            <p><i class="fas fa-map-marker-alt icon"></i>Bengaluru, Karnataka, India</p>
+            <p><i class="fas fa-briefcase icon"></i>Open to Remote</p>
+            <p><i class="fas fa-plane icon"></i>Open to Relocate</p>
+            <p><i class="fab fa-linkedin icon"></i><a href="https://www.linkedin.com/in/harshithkumark4" target="_blank">LinkedIn</a></p>
+            <p><i class="fas fa-certificate icon"></i><a href="https://www.credly.com/users/harshith-kumar-k" target="_blank">Credly Profile</a></p>
+        </div>
+    </div>
+    <div class="content fade-in" id="work-experience">
+        <h2>Work Experience</h2>
+        <h3>Sr. Data Engineer | AWS Cloud Specialist</h3>
+        <p>Teksystems Global Solution | Oct '24 — Present | Bengaluru, India</p>
+        <ul>
+            <li><b>Built Scalable Data Pipelines:</b> Designed and implemented end-to-end ETL processes to integrate datasets from Hadoop, MySQL, and Salesforce using AWS Glue (PySpark, SQL), Iceberg, and Redshift, <b>reducing processing time by 35%</b>.</li>
+            <li><b>Optimized Infrastructure Deployment:</b> Automated provisioning using Terraform and CloudFormation, <b>cutting manual setup efforts by 25%</b> and improving deployment consistency across environments.</li>
+            <li><b>Enhanced DevOps Practices:</b> Established CI/CD pipelines on GitHub and managed sprint workflows with JIRA, <b>boosting deployment speed and team collaboration efficiency by 20%</b>.</li>
+            <li><b>Improved Data Accessibility:</b> Queried large datasets using AWS Athena, improving analytical capabilities for data science and business teams, <b>reducing query time by 50%</b>.</li>
+            <li><b>Delivered Business Insights:</b> Transformed multi-terabyte datasets into actionable insights, supporting critical decision-making processes and optimizing business operations for an insurance client.</li>
+        </ul>
+        
+        <h3>Data Analytics and Data Engineering Associate</h3>
+        <p>Labcorp Laboratories India | Feb '21 — Sep '24 | Bengaluru, India</p>
+        <ul>
+            <li><b>Improved Data Processing:</b> AWS Glue, S3, and Redshift, <b>cutting latency from 4 hours to 1 hour</b> and improving system reliability.</li>
+            <li><b>Extracted Actionable Insights:</b> Processed over <b>10,000 PDF documents monthly</b> with Python and NLP, achieving <b>98% data extraction accuracy</b> for compliance and reporting.</li>
+            <li><b>Developed Predictive Models:</b> Leveraged AWS SageMaker to create models with <b>80% forecasting accuracy</b>, enabling data-driven decision-making in high-stakes scenarios.</li>
+            <li><b>Optimized Data Infrastructure:</b> Designed a robust data warehouse and cataloging system, <b>saving 300+ hours monthly</b> in data discovery and analysis.</li>
+            <li><b>Enhanced Visualization:</b> Built <b>10+ interactive dashboards</b> using Tableau and Power BI, improving KPI monitoring and executive decision-making by <b>25%</b>.</li>
+            <li><b>Cross-functional Collaboration:</b> Acted as a key liaison between technical teams and business stakeholders, ensuring alignment of data strategies with organizational goals.</li>
+        </ul>
+    </div>
+    <div class="content fade-in" id="education">
+        <h2>Education</h2>
+        <p>Master in Computer Applications, R.V. College of Engineering, Bangalore | Jan '18 — Dec '21</p>
+        <p>Bachelor in Computer Applications, Yuvaraja's College, Mysuru | Jan '15 — Dec '18</p>
+    </div>
+    <div class="content fade-in" id="certifications">
+        <h2>Certifications</h2>
+        <p>AWS Certified Data Engineer Associate</p>
+    </div>
+    <div class="content fade-in" id="skills">
+        <h2>Skills</h2>
+        <div class="skills">
+            <ul>
+                <li><i class="fas fa-database"></i>Data Management: ETL/ELT, Data Pipelines, Data Lakes, Data Warehousing</li>
+                <li><i class="fas fa-code"></i>Programming Languages: Python, SQL, PySpark</li>
+                <li><i class="fas fa-cloud"></i>Cloud Technologies: AWS (S3, Glue, Redshift, Lambda, Athena, SageMaker)</li>
+                <li><i class="fas fa-tools"></i>Development Tools: Terraform, CloudFormation, GitHub, JIRA</li>
+                <li><i class="fas fa-chart-bar"></i>Analytics Tools: Tableau, Power BI, MySQL, AWS RDS, Snowflake</li>
+            </ul>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2023 Harshith Kumar K. All rights reserved.</p>
+    </footer>
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', newTheme);
+            document.querySelector('.theme-toggle i').classList.toggle('fa-moon');
+            document.querySelector('.theme-toggle i').classList.toggle('fa-sun');
+        }
+    </script>
+</body>
+</html>
